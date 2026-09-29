@@ -2,10 +2,14 @@
 
 import { useState } from "react";
 import { Link } from "@/i18n/navigation";
-import { Menu, X, User, LogOut, LayoutDashboard } from "lucide-react";
+import { Menu, X, User } from "lucide-react";
 import { logout } from "@/services/auth";
 import { useRouter } from "@/i18n/navigation";
 import type { AuthMe } from "@/types/auth";
+import logo from "@/assets/logos/Header_Logo.svg";
+import Image from "next/image";
+import cartIcon from "@/assets/icons/cart.svg";
+import styles from "./Navbar.module.css";
 
 type NavbarClientProps = {
   user: AuthMe | null;
@@ -13,7 +17,14 @@ type NavbarClientProps = {
 
 const NAV_LINKS = [
   { label: "Home", href: "/" },
-  // Add more public links here
+  { label: "Courses", href: "/courses" },
+  { label: "Creators", href: "/creators" },
+];
+
+const Right_Nav_Links = [
+  { label: "Sign In", href: "/signin" },
+  { label: "Join Us", href: "/join_us" },
+  { label: "Cart", href: "/cart", icon: cartIcon },
 ];
 
 export default function NavbarClient({ user }: NavbarClientProps) {
@@ -29,15 +40,19 @@ export default function NavbarClient({ user }: NavbarClientProps) {
   }
 
   return (
-    <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-200">
+    <header
+      className={`${styles.navbar} sticky top-0 z-50 border-b border-blue-700`}
+    >
       <div className="container">
-        <div className="flex items-center justify-between h-16">
+        <div className="flex h-[120px] items-center justify-between">
           {/* Brand */}
-          <Link
-            href="/"
-            className="text-lg font-bold text-gray-900 tracking-tight"
-          >
-            ByteSpace
+          <Link href="/" className="tracking-tight">
+            <Image
+              src={logo}
+              alt="ByteSpace"
+              className="w-auto h-full"
+              priority
+            />
           </Link>
 
           {/* Desktop nav */}
@@ -46,7 +61,7 @@ export default function NavbarClient({ user }: NavbarClientProps) {
               <Link
                 key={link.href}
                 href={link.href}
-                className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors"
+                className="text-sm text-white hover:text-gray-900 transition-colors font-satoshi"
               >
                 {link.label}
               </Link>
@@ -55,40 +70,26 @@ export default function NavbarClient({ user }: NavbarClientProps) {
 
           {/* Auth — desktop */}
           <div className="hidden md:flex items-center gap-3">
-            {user ? (
-              <>
+            <nav className="hidden md:flex items-center gap-6">
+              {Right_Nav_Links.map((link) => (
                 <Link
-                  href="/dashboard"
-                  className="inline-flex items-center gap-2 text-sm font-medium text-gray-700 hover:text-gray-900 transition-colors"
+                  key={link.href}
+                  href={link.href}
+                  className="flex items-center gap-2 text-sm text-white hover:text-gray-900 transition-colors font-satoshi"
                 >
-                  <LayoutDashboard className="w-4 h-4" />
-                  Dashboard
+                  {link.icon ? (
+                    <Image
+                      src={link.icon}
+                      alt={link.label}
+                      width={20}
+                      height={20}
+                    />
+                  ) : (
+                    link.label
+                  )}
                 </Link>
-                <button
-                  onClick={handleLogout}
-                  disabled={signingOut}
-                  className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-white bg-brand-600 rounded-xl hover:bg-brand-700 transition-colors disabled:opacity-60"
-                >
-                  <LogOut className="w-4 h-4" />
-                  {signingOut ? "Signing out…" : "Sign Out"}
-                </button>
-              </>
-            ) : (
-              <>
-                <Link
-                  href="/login"
-                  className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors"
-                >
-                  Sign In
-                </Link>
-                <Link
-                  href="/signup"
-                  className="px-4 py-2 text-sm font-medium text-white bg-brand-600 rounded-xl hover:bg-brand-700 transition-colors"
-                >
-                  Get Started
-                </Link>
-              </>
-            )}
+              ))}
+            </nav>
           </div>
 
           {/* Mobile hamburger */}
@@ -108,23 +109,23 @@ export default function NavbarClient({ user }: NavbarClientProps) {
 
       {/* Mobile menu */}
       {menuOpen && (
-        <div className="md:hidden border-t border-gray-100 bg-white px-4 py-4 flex flex-col gap-3">
+        <div className="flex flex-col gap-3 border-t border-blue-400/30 bg-[#073fe0] px-4 py-4 md:hidden">
           {NAV_LINKS.map((link) => (
             <Link
               key={link.href}
               href={link.href}
-              className="text-sm font-medium text-gray-700 hover:text-gray-900"
+              className="text-sm font-medium text-white hover:text-[#d4fb20]"
               onClick={() => setMenuOpen(false)}
             >
               {link.label}
             </Link>
           ))}
-          <div className="border-t border-gray-100 pt-3 flex flex-col gap-2">
+          <div className="flex flex-col gap-2 border-t border-blue-400/30 pt-3">
             {user ? (
               <>
                 <Link
                   href="/dashboard"
-                  className="flex items-center gap-2 text-sm font-medium text-gray-700"
+                  className="flex items-center gap-2 text-sm font-medium text-white"
                   onClick={() => setMenuOpen(false)}
                 >
                   <User className="w-4 h-4" />
@@ -142,7 +143,7 @@ export default function NavbarClient({ user }: NavbarClientProps) {
               <>
                 <Link
                   href="/login"
-                  className="text-sm font-medium text-gray-700"
+                  className="text-sm font-medium text-white"
                   onClick={() => setMenuOpen(false)}
                 >
                   Sign In
