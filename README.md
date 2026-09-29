@@ -1,0 +1,95 @@
+# ByteSpace
+
+A modern customer portal built with Next.js, TypeScript, and Tailwind CSS.
+
+## About ByteSpace
+
+ByteSpace provides customers with a fast, secure, and easy-to-use portal experience.
+
+## Features
+
+- **Color-Based Shopping**: Browse and filter products by 7 vibrant color categories
+- **Multi-Language Support**: Internationalized routing with next-intl
+- **Responsive Design**: Mobile-first approach with Tailwind CSS
+- **Modern Stack**: Next.js 16 with App Router and Turbopack
+- **Authentication**: Custom OTP-based authentication system
+- **Product Filtering**: Filter by color, price range, and star ratings
+- **Shopping Cart**: Full shopping cart management
+- **Order Tracking**: User order history and tracking
+
+## Project Structure
+
+```
+src/
+├── app/[locale]/          # App Router with i18n support
+├── components/            # Reusable React components
+├── contexts/              # React Context for state management
+├── data/                  # Static data (colors, products)
+├── i18n/                  # Internationalization setup
+├── lib/                   # Utility functions and helpers
+├── services/              # API services
+├── types/                 # TypeScript type definitions
+└── utils/                 # Helper utilities
+```
+
+## Getting Started
+
+### Prerequisites
+
+- Node.js 18.17 or later
+- npm or yarn
+
+### Installation
+
+```bash
+npm install
+```
+
+### Development
+
+```bash
+npm run dev
+```
+
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+### Production Build
+
+```bash
+npm run build
+npm run start
+```
+
+## Tech Stack
+
+- **Framework**: Next.js 16.1.4
+- **Language**: TypeScript 5
+- **Styling**: Tailwind CSS 3.4
+- **Internationalization**: next-intl 4.6.0
+- **Icons**: lucide-react
+- **Notifications**: sonner
+- **Image Optimization**: Next.js Image component
+
+## Products
+
+- **Total Products**: 21 color-focused dresses
+- **Price Range**: ₹1,290 - ₹3,490
+- **Color Categories**: 7 (Red, Orange, Yellow, Green, Blue, Indigo, Violet)
+- **Available Sizes**: XS, S, M, L, XL, XXL
+
+## Routes
+
+- `/` - Home page
+- `/products` - Browse all products with filters
+- `/shop/[color]` - View products by color
+- `/categories` - Browse color categories
+- `/about` - About Vibgyor
+- `/cart` - Shopping cart
+- `/checkout` - Checkout process
+- `/orders` - Order history
+- `/orders/[id]` - Order details
+
+## License
+
+MIT
+Next.js-based marketing website with project listings, investment insights, and lead capture system.
