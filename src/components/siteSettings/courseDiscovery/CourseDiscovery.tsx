@@ -1,13 +1,10 @@
 import Image, { type StaticImageData } from "next/image";
-import {
-  Building2,
-  Code2,
-  IdCard,
-  Laptop,
-  Megaphone,
-  Palette,
-  type LucideIcon,
-} from "lucide-react";
+import frame1 from "@/assets/icons/frame1.svg";
+import frame2 from "@/assets/icons/frame2.svg";
+import frame3 from "@/assets/icons/frame3.svg";
+import frame4 from "@/assets/icons/Frame 4 (3).svg";
+import frame5 from "@/assets/icons/Frame 4 (4).svg";
+import frame6 from "@/assets/icons/Frame 4 (5).svg";
 import styles from "@/app/page.module.css";
 import figmaImage from "@/assets/images/course/1-learn-figma.jpg";
 import digitalImage from "@/assets/images/course/2-build-digital.jpg";
@@ -17,6 +14,8 @@ import moneyImage from "@/assets/images/course/5-money-manage.jpg";
 import startupImage from "@/assets/images/course/6-startup.jpg";
 import progressImage from "@/assets/images/testimonial/progress.png";
 import revenueImage from "@/assets/images/testimonial/revenue.png";
+import stat from "@/assets/icons/stat.svg";
+import profile from "@/assets/icons/profiles.svg";
 
 type Course = {
   image: StaticImageData;
@@ -53,13 +52,13 @@ const COURSES: Course[] = [
   { image: startupImage, title: "From Idea to Startup Success" },
 ];
 
-const LEARNING_PATHS: { label: string; icon: LucideIcon }[] = [
-  { label: "Design", icon: Palette },
-  { label: "Development", icon: Code2 },
-  { label: "IT & Software", icon: Laptop },
-  { label: "Business", icon: Building2 },
-  { label: "Marketing", icon: Megaphone },
-  { label: "Photography", icon: IdCard },
+const LEARNING_PATHS: { label: string; icon: StaticImageData }[] = [
+  { label: "Design", icon: frame1 },
+  { label: "Development", icon: frame2 },
+  { label: "IT & Software", icon: frame3 },
+  { label: "Business", icon: frame4 },
+  { label: "Marketing", icon: frame5 },
+  { label: "Photography", icon: frame6 },
 ];
 
 function CourseCard({ course }: { course: Course }) {
@@ -85,18 +84,24 @@ function CourseCard({ course }: { course: Course }) {
           </span>
         </div>
         <p className={styles.courseCreator}>
-          by <span>purepearl studio</span>
+          by <span className="text-[#003BE2]">purepearl studio</span>
         </p>
         <div className={styles.courseMetaRow}>
-          <span className={styles.levelBadge}>
-            <span aria-hidden="true">▮</span> Beginner
+          <span>
+            <Image
+              src={stat}
+              alt=""
+              className={styles.levelIcon}
+              aria-hidden="true"
+            />
           </span>
           <span className={styles.studentAvatars} aria-label="26 plus students">
-            <i />
-            <i />
-            <i />
-            <i />
-            <b>26+</b>
+            <Image
+              src={profile}
+              alt=""
+              className={styles.studentProfileIcon}
+              aria-hidden="true"
+            />
           </span>
         </div>
         <p className={styles.coursePrice}>
@@ -113,7 +118,7 @@ export default function CourseDiscovery() {
       className={styles.courseDiscovery}
       aria-labelledby="course-discovery-title"
     >
-      <div className="container mx-8 px-4">
+      <div className="container mx-auto max-w-7xl px-8">
         <header className={styles.courseDiscoveryHeader}>
           <h2 className="">
             Discover Your Passion,
@@ -147,7 +152,7 @@ export default function CourseDiscovery() {
           </button>
         </nav>
 
-        <div className={styles.courseGrid} >
+        <div className={styles.courseGrid}>
           {COURSES.map((course) => (
             <CourseCard key={course.title} course={course} />
           ))}
@@ -171,14 +176,14 @@ export default function CourseDiscovery() {
           </header>
 
           <div className={styles.learningPathGrid}>
-            {LEARNING_PATHS.map(({ label, icon: Icon }) => (
+            {LEARNING_PATHS.map(({ label, icon }) => (
               <button
                 key={label}
                 type="button"
                 className={styles.learningPathCard}
               >
                 <span className={styles.learningPathIcon} aria-hidden="true">
-                  <Icon size={29} strokeWidth={2.4} />
+                  <Image src={icon} alt=""  />
                 </span>
                 <span>{label}</span>
               </button>

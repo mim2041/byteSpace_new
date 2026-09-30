@@ -568,9 +568,10 @@ a.secondary {
   border-radius: 999px;
   padding: 5px 9px;
   background: rgba(235, 237, 239, 0.86);
-  color: #565962;
-  font-size: 9px;
+  color: #4f4f4f;
+  font-size: 12px;
   white-space: nowrap;
+  font-weight: 500;
 }
 
 .courseCardBody {
@@ -587,27 +588,30 @@ a.secondary {
 .courseTitleRow h3 {
   overflow: hidden;
   margin: 0;
-  font-size: 16px;
-  font-weight: 700;
+  font-size: 20px;
+  font-weight: 600;
   line-height: 1.2;
   text-overflow: ellipsis;
   white-space: nowrap;
+  font-family: poppins, sans-serif;
 }
 
 .courseRating {
   flex-shrink: 0;
-  color: #757780;
-  font-size: 13px;
+  color: #4f4f4f;
+  font-size: 18px;
+  font-weight: 400;
 }
 
 .courseRating span {
-  color: #c6c9ce;
+  color: #ced0d3;
+  font-size: 24px;
 }
 
 .courseCreator {
   margin: 4px 0 12px;
-  color: #747780;
-  font-size: 9px;
+  font-size: 12px;
+  font-weight: 400;
 }
 
 .courseCreator span {
@@ -617,7 +621,7 @@ a.secondary {
 .courseMetaRow {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  gap: 20px;
 }
 
 .levelBadge {
@@ -625,12 +629,13 @@ a.secondary {
   padding: 7px 11px;
   background: #f2f2f4;
   color: #656871;
-  font-size: 10px;
+  font-size: 20px;
+  font-weight: 600;
 }
 
 .levelBadge span {
   margin-right: 5px;
-  font-size: 8px;
+  font-size: 12px;
 }
 
 .studentAvatars {
@@ -741,10 +746,10 @@ a.secondary {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 63px;
-  height: 63px;
+  width: 100%;
+  height: 100%;
   border-radius: 50%;
-  background: #caff00;
+  /* background: #caff00; */
   color: #303320;
 }
 
