@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import { Link, useRouter } from "@/i18n/navigation";
-import { Mail, Lock, User } from "lucide-react";
 import { toast } from "sonner";
 import Button from "@/components/ui/Button";
 import Input from "@/components/ui/Input";
@@ -54,11 +53,10 @@ export default function SignupPage() {
   }
 
   return (
-    <div className="w-full max-w-md">
-      <div className="bg-white border border-gray-200 rounded-2xl px-8 py-10 shadow-sm">
-        <div className="mb-8 text-center">
-          <h1 className="text-2xl font-bold text-gray-900">Create account</h1>
-          <p className="mt-1 text-sm text-gray-500">Sign up to get started</p>
+    <div>
+        <div className="mb-7">
+          <p className="mb-1 text-xs font-medium text-blue-600">Create an Account</p>
+          <h1 className="text-[2rem] font-bold leading-tight tracking-tight text-zinc-800">Welcome to<br />ByteSpace</h1>
         </div>
 
         <form onSubmit={handleSubmit} noValidate className="space-y-5">
@@ -70,8 +68,7 @@ export default function SignupPage() {
             value={form.name}
             onChange={handleChange}
             error={errors.name}
-            leftIcon={<User className="w-4 h-4" />}
-            placeholder="Jane Smith"
+            placeholder="Jamie Davis"
           />
 
           <Input
@@ -82,8 +79,7 @@ export default function SignupPage() {
             value={form.email}
             onChange={handleChange}
             error={errors.email}
-            leftIcon={<Mail className="w-4 h-4" />}
-            placeholder="you@example.com"
+            placeholder="designer@example.com"
           />
 
           <Input
@@ -94,23 +90,27 @@ export default function SignupPage() {
             value={form.password}
             onChange={handleChange}
             error={errors.password}
-            leftIcon={<Lock className="w-4 h-4" />}
-            placeholder="Min. 8 characters"
+            placeholder="********"
             hint="Use at least 8 characters with letters and numbers."
           />
 
-          <Button type="submit" fullWidth loading={loading} size="lg">
+          <Button
+            type="submit"
+            fullWidth
+            loading={loading}
+            size="lg"
+            className="bg-[#d4fb20] text-zinc-900 hover:bg-[#c4eb0e] active:bg-[#b4db00]"
+          >
             Create Account
           </Button>
         </form>
 
-        <p className="mt-6 text-center text-sm text-gray-500">
+        <p className="mt-12 text-center text-xs text-gray-500">
           Already have an account?{" "}
           <Link href="/login" className="font-medium text-brand-600 hover:text-brand-700">
             Sign in
           </Link>
         </p>
-      </div>
     </div>
   );
 }

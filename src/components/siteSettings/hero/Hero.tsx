@@ -10,13 +10,20 @@ import img from "@/assets/icons/Image.svg";
 import layout1 from "@/assets/icons/Auto Layout Vertical.svg";
 import layout2 from "@/assets/icons/Auto Layout Vertical (1).svg";
 import layout3 from "@/assets/icons/Auto Layout Vertical (2).svg";
+import partnerLogo1 from "@/assets/images/partner/logoimsum-01.svg";
+import partnerLogo2 from "@/assets/images/partner/logoimsum-02.svg";
+import partnerLogo3 from "@/assets/images/partner/logoimsum-03.svg";
+import partnerLogo4 from "@/assets/images/partner/Frame.svg";
+import partnerLogo5 from "@/assets/images/partner/logoimsum-04.svg";
+import round from "@/assets/icons/Cone (2).svg";
+import frame3 from "@/assets/icons/Frame (2).svg";
 
 const PARTNERS = [
-  "Logoipsum",
-  "Logoipsum",
-  "Logoipsum",
-  "Logoipsum",
-  "Logoipsum",
+  partnerLogo1,
+  partnerLogo2,
+  partnerLogo3,
+  partnerLogo4,
+  partnerLogo5,
 ];
 
 export default function Hero() {
@@ -27,7 +34,7 @@ export default function Hero() {
           <div className={styles.heroGrid} aria-hidden="true" />
 
           <div
-            className="absolute top-20 left-0 w-full h-full "
+            className="absolute top-24 left-0 w-full h-full "
             aria-hidden="true"
           >
             <Image
@@ -40,19 +47,33 @@ export default function Hero() {
           <Image
             src={cone1}
             alt="Cone"
-            className="absolute top-20 right-0"
+            className="absolute top-24 right-0"
             aria-hidden="true"
           />
           <Image
             src={frame2}
             alt="Frame"
-            className="absolute top-1/2 left-40"
+            className="absolute top-1/3 left-48"
             aria-hidden="true"
           />
           <Image
             src={cone2}
             alt="Cone"
-            className="absolute top-1/2 right-40"
+            className="absolute top-1/3 right-48"
+            aria-hidden="true"
+          />
+
+          <Image
+            src={round}
+            alt="Round"
+            className="absolute bottom-0 left-44 z-20 -translate-x-1/2"
+            aria-hidden="true"
+          />
+
+          <Image
+            src={frame3}
+            alt="Frame"
+            className="absolute bottom-0 right-44 z-20 translate-x-1/2"
             aria-hidden="true"
           />
 
@@ -129,13 +150,14 @@ export default function Hero() {
       </section>
 
       <section className={styles.partnerStrip} aria-label="Trusted partners">
-        <div className="container flex flex-wrap items-center justify-center gap-x-8 gap-y-4 px-4 py-7 sm:justify-between sm:gap-x-4">
+        <div className="container flex flex-wrap items-center justify-center gap-x-8 gap-y-4 px-4 py-20 sm:justify-between sm:gap-x-4 max-w-7xl mx-auto">
           {PARTNERS.map((partner, index) => (
-            <div key={`${partner}-${index}`} className={styles.partner}>
-              <span className={styles.partnerMark} aria-hidden="true">
-                {index === 2 ? "⚡" : index === 3 ? "✣" : "◉"}
-              </span>
-              {partner}
+            <div key={partner.src} className={styles.partner}>
+              <Image
+                src={partner}
+                alt={`Trusted partner ${index + 1}`}
+                className={styles.partnerLogo}
+              />
             </div>
           ))}
         </div>

@@ -22,8 +22,8 @@ const NAV_LINKS = [
 ];
 
 const Right_Nav_Links = [
-  { label: "Sign In", href: "/signin" },
-  { label: "Join Us", href: "/join_us" },
+  { label: "Sign In", href: "/login" },
+  { label: "Join Us", href: "/signup" },
   { label: "Cart", href: "/cart", icon: cartIcon },
 ];
 
