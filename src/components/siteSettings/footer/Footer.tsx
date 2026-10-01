@@ -7,28 +7,28 @@ const FOOTER_LINK_GROUPS = [
   {
     title: "Featured Courses",
     links: [
-    { label: "Featured Categories", href: "/categories" },
-    { label: "Business", href: "/categories/business" },
-    { label: "IT", href: "/categories/it" },
-    { label: "Design", href: "/categories/design" },
+      { label: "Featured Categories", href: "/categories" },
+      { label: "Business", href: "/categories/business" },
+      { label: "IT", href: "/categories/it" },
+      { label: "Design", href: "/categories/design" },
     ],
   },
   {
     title: "Development",
     links: [
-    { label: "Marketing", href: "/categories/marketing" },
-    { label: "Photography", href: "/categories/photography" },
-    { label: "Finance", href: "/categories/finance" },
-    { label: "Sport", href: "/categories/sport" },
+      { label: "Marketing", href: "/categories/marketing" },
+      { label: "Photography", href: "/categories/photography" },
+      { label: "Finance", href: "/categories/finance" },
+      { label: "Sport", href: "/categories/sport" },
     ],
   },
   {
     title: "Become a Creator",
     links: [
-    { label: "Affiliate Program", href: "/affiliate" },
-    { label: "Contact", href: "/contact" },
-    { label: "Help", href: "/help" },
-    { label: "About", href: "/about" },
+      { label: "Affiliate Program", href: "/affiliate" },
+      { label: "Contact", href: "/contact" },
+      { label: "Help", href: "/help" },
+      { label: "About", href: "/about" },
     ],
   },
 ];
@@ -44,30 +44,50 @@ export default function Footer() {
 
   return (
     <footer className={styles.footer}>
-      <div className={`container ${styles.footerInner}`}>
+      <div className={`container mx-auto max-w-7xl ${styles.footerInner}`}>
         <div className={styles.footerTop}>
           <div>
             <Image src={logo} alt="ByteSpace" className={styles.brand} />
-            <p className={styles.newsletterDescription}>Stay Up to date with our latest features and releases by joining our newsletter.</p>
+            <p className={styles.newsletterDescription}>
+              Stay Up to date with our latest features and releases by joining
+              our newsletter.
+            </p>
             <form className={styles.newsletterForm}>
-              <input type="email" placeholder="Enter your email" aria-label="Email address" />
+              <input
+                type="email"
+                placeholder="Enter your email"
+                aria-label="Email address"
+              />
               <button type="submit">Search</button>
             </form>
-            <p className={styles.newsletterFinePrint}>By subscribing, you agree to our Privacy Policy and consent to receive updates from our company.</p>
+            <p className={styles.newsletterFinePrint}>
+              By subscribing, you agree to our Privacy Policy and consent to
+              receive updates from our company.
+            </p>
           </div>
           <nav className={styles.footerLinks} aria-label="Footer navigation">
             {FOOTER_LINK_GROUPS.map((group) => (
               <div key={group.title} className={styles.footerLinkGroup}>
                 <h2>{group.title}</h2>
-                {group.links.map((link) => <Link key={link.href} href={link.href}>{link.label}</Link>)}
+                {group.links.map((link) => (
+                  <Link key={link.href} href={link.href}>
+                    {link.label}
+                  </Link>
+                ))}
               </div>
             ))}
           </nav>
         </div>
         <div className={styles.footerBottom}>
-          <p className={styles.copyright}>&copy; {year} ByteSpace. All rights reserved.</p>
+          <p className={styles.copyright}>
+            &copy; {year} ByteSpace. All rights reserved.
+          </p>
           <nav className={styles.legalLinks} aria-label="Legal navigation">
-            {LEGAL_LINKS.map((link) => <Link key={link.href} href={link.href}>{link.label}</Link>)}
+            {LEGAL_LINKS.map((link) => (
+              <Link key={link.href} href={link.href}>
+                {link.label}
+              </Link>
+            ))}
           </nav>
         </div>
       </div>

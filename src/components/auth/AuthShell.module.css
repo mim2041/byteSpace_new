@@ -9,15 +9,29 @@
 .frame {
   position: relative;
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(360px, 0.92fr);
-  width: min(100%, 1440px);
+  grid-template-columns: minmax(0, clamp(400px, 42vw, 600px)) minmax(
+      320px,
+      clamp(360px, 32vw, 470px)
+    );
+  column-gap: clamp(40px, 6vw, 96px);
+  justify-content: center;
+  width: 100%;
   min-height: 100svh;
   margin: 0 auto;
   overflow: hidden;
   background-color: #073fe0;
-  background-image: linear-gradient(rgba(255, 255, 255, 0.12) 1px, transparent 1px),
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.12) 1px, transparent 1px),
     linear-gradient(90deg, rgba(255, 255, 255, 0.12) 1px, transparent 1px);
   background-size: 80px 80px;
+}
+
+.visualColumn {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  justify-content: center;
+  padding: 6rem 0 2rem;
 }
 
 .brand {
@@ -46,8 +60,8 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  max-width: 470px;
-  padding: 6.6rem 2rem 2rem 8.5%;
+  max-width: 560px;
+  padding: 0;
 }
 
 .eyebrow {
@@ -65,13 +79,12 @@
 }
 
 .art {
-  position: absolute;
-  bottom: 4.5%;
-  left: 6%;
-  width: min(45%, 520px);
-  max-height: 62%;
+  position: relative;
+  width: min(100%, 600px);
+  max-height: 420px;
+  margin: 4.5rem auto 0;
   object-fit: contain;
-  object-position: left bottom;
+  object-position: center;
   filter: drop-shadow(0 18px 20px rgba(2, 19, 91, 0.18));
 }
 
@@ -79,11 +92,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 4rem 7% 2.5rem 2rem;
+  padding: 4rem 0 2.5rem;
 }
 
 .formCard {
-  width: min(100%, 405px);
+  width: min(100%, 470px);
   padding: 2.2rem 2.55rem 1.8rem;
   border-radius: 1rem;
   background: #ffffff;
@@ -138,15 +151,44 @@
   flex-direction: column;
 }
 
+@media (min-width: 801px) {
+  .eyebrow {
+    font-size: 1.05rem;
+  }
+
+  .description {
+    max-width: 440px;
+    font-size: 0.95rem;
+  }
+
+  .formCard h1 {
+    font-size: 2.1rem;
+  }
+
+  .formCard :global(.label-base) {
+    font-size: 0.75rem;
+  }
+
+  .formCard :global(.input-base) {
+    height: 44px;
+    font-size: 0.82rem;
+  }
+}
+
 @media (max-width: 800px) {
   .page {
     padding: 0;
   }
 
   .frame {
-    display: block;
+    display: flex;
+    flex-direction: column;
     min-height: 100svh;
     overflow: hidden;
+  }
+
+  .visualColumn {
+    padding: 0;
   }
 
   .brand {
@@ -155,22 +197,33 @@
   }
 
   .intro {
-    min-height: 250px;
+    flex: 0 0 auto;
+    min-height: 0;
     max-width: none;
-    padding: 5.25rem 1.5rem 0;
+    width: 100%;
+    padding: 5.25rem 1rem 1rem;
+  }
+
+  .description {
+    width: 100%;
+    max-width: none;
   }
 
   .art {
-    bottom: auto;
-    top: 7.5rem;
-    left: 50%;
-    width: min(72%, 360px);
-    max-height: 190px;
-    transform: translateX(-50%);
+    position: relative;
+    top: auto;
+    left: auto;
+    flex: 0 0 auto;
+    width: min(calc(100% - 1rem), 480px);
+    max-height: 300px;
+    height: auto;
+    margin: 0 auto 1rem;
+    transform: none;
     object-position: center;
   }
 
   .formArea {
+    flex: 1 1 auto;
     padding: 1.25rem 1rem 2rem;
   }
 
@@ -186,23 +239,18 @@
 
 @media (max-width: 420px) {
   .intro {
-    min-height: 238px;
+    width: 100%;
     padding-right: 1rem;
     padding-left: 1rem;
   }
 
   .description {
-    max-width: 280px;
     font-size: 0.74rem;
   }
 
   .art {
-    top: 7.2rem;
-    width: min(84%, 340px);
-  }
-
-  .intro {
-    min-height: 230px;
+    width: min(calc(100% - 1rem), 480px);
+    max-height: 300px;
   }
 
   .formArea {
@@ -222,12 +270,13 @@
 
 @media (max-width: 800px) and (max-height: 700px) {
   .intro {
-    min-height: 205px;
+    padding-top: 4.5rem;
+    padding-bottom: 0.5rem;
   }
 
   .art {
-    top: 6.5rem;
-    max-height: 145px;
+    max-height: 240px;
+    margin-bottom: 0.5rem;
   }
 
   .formArea {

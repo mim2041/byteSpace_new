@@ -146,14 +146,14 @@ a.secondary {
 
 .hero {
   position: relative;
-  min-height: 820px;
+  min-height: 940px;
   overflow: hidden;
   background: #073fe0;
   isolation: isolate;
 }
 
 .heroContent {
-  min-height: 820px;
+  min-height: 940px;
 }
 
 .heroGrid {
@@ -1081,7 +1081,7 @@ a.secondary {
 
 @media (max-width: 767px) {
   .hero {
-    min-height: 820px;
+    min-height: 900px;
   }
 
   .hero h1 {
@@ -1097,7 +1097,7 @@ a.secondary {
   }
 
   .heroContent {
-    min-height: 820px;
+    min-height: 900px;
   }
 
   .heroDecoration {
@@ -1126,18 +1126,18 @@ a.secondary {
   }
 
   .heroVisual {
-    top: 500px;
+    top: 545px;
     bottom: auto;
-    width: 110vw;
+    width: 94vw;
     height: 300px;
   }
   .heroEllipse {
     bottom: -230px;
-    width: 1000px;
+    width: 860px;
   }
   .heroLearner {
     bottom: -30px;
-    width: 410px;
+    width: 360px;
   }
   .courseCard {
     top: 0;
@@ -1279,11 +1279,11 @@ a.secondary {
 
 @media (max-width: 420px) {
   .hero {
-    min-height: 780px;
+    min-height: 860px;
   }
 
   .heroContent {
-    min-height: 780px;
+    min-height: 860px;
     padding-top: 4.25rem;
   }
 
@@ -1300,13 +1300,14 @@ a.secondary {
   }
 
   .heroVisual {
-    top: 470px;
+    top: 510px;
+    width: 92vw;
     height: 290px;
   }
 
   .heroLearner {
     bottom: -28px;
-    width: 350px;
+    width: 330px;
   }
 
   .courseCard,
