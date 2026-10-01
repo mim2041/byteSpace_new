@@ -40,40 +40,40 @@ export default function Hero() {
             <Image
               src={frame1}
               alt="Frame"
-              className={styles.frame1}
+              className={`${styles.heroDecoration} ${styles.frame1}`}
               aria-hidden="true"
             />
           </div>
           <Image
             src={cone1}
             alt="Cone"
-            className="absolute top-24 right-0"
+            className={`${styles.heroDecoration} absolute top-24 right-0`}
             aria-hidden="true"
           />
           <Image
             src={frame2}
             alt="Frame"
-            className="absolute top-1/3 left-48"
+            className={`${styles.heroDecoration} absolute top-1/3 left-48`}
             aria-hidden="true"
           />
           <Image
             src={cone2}
             alt="Cone"
-            className="absolute top-1/3 right-48"
+            className={`${styles.heroDecoration} absolute top-1/3 right-48`}
             aria-hidden="true"
           />
 
           <Image
             src={round}
             alt="Round"
-            className="absolute bottom-0 left-44 z-20 -translate-x-1/2"
+            className={`${styles.heroDecoration} absolute bottom-0 left-44 z-20 -translate-x-1/2`}
             aria-hidden="true"
           />
 
           <Image
             src={frame3}
             alt="Frame"
-            className="absolute bottom-0 right-44 z-20 translate-x-1/2"
+            className={`${styles.heroDecoration} absolute bottom-0 right-44 z-20 translate-x-1/2`}
             aria-hidden="true"
           />
 
@@ -132,17 +132,17 @@ export default function Hero() {
               <Image
                 src={layout2}
                 alt="UI/UX Design course summary"
-                className={styles.courseCard}
+                className={`${styles.courseCard} ${styles.mobileOptional}`}
               />
               <Image
                 src={layout1}
                 alt="Learning progress: 55 percent"
-                className={styles.progressAsset}
+                className={`${styles.progressAsset} ${styles.mobileOptional}`}
               />
               <Image
                 src={layout3}
                 alt="Happy students and course rating"
-                className={styles.studentsCard}
+                className={`${styles.studentsCard} ${styles.mobileOptional}`}
               />
             </div>
           </div>
