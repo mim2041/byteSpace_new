@@ -44,13 +44,13 @@ export default function NavbarClient({ user }: NavbarClientProps) {
       className={`${styles.navbar} sticky top-0 z-50 border-b border-blue-700`}
     >
       <div className="container">
-        <div className="flex h-[120px] items-center justify-between">
+        <div className="flex h-[76px] items-center justify-between">
           {/* Brand */}
           <Link href="/" className="tracking-tight">
             <Image
               src={logo}
               alt="ByteSpace"
-              className="w-auto h-full"
+              className="h-auto w-[118px]"
               priority
             />
           </Link>
@@ -61,7 +61,7 @@ export default function NavbarClient({ user }: NavbarClientProps) {
               <Link
                 key={link.href}
                 href={link.href}
-                className="text-sm text-white hover:text-gray-900 transition-colors font-satoshi"
+                className="text-[11px] text-white transition-colors hover:text-[#d4fb20] font-satoshi"
               >
                 {link.label}
               </Link>
@@ -75,7 +75,7 @@ export default function NavbarClient({ user }: NavbarClientProps) {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="flex items-center gap-2 text-sm text-white hover:text-gray-900 transition-colors font-satoshi"
+                  className="flex items-center gap-2 text-[11px] text-white transition-colors hover:text-[#d4fb20] font-satoshi"
                 >
                   {link.icon ? (
                     <Image
@@ -94,7 +94,7 @@ export default function NavbarClient({ user }: NavbarClientProps) {
 
           {/* Mobile hamburger */}
           <button
-            className="md:hidden p-2 text-gray-600 hover:text-gray-900"
+            className="p-2 text-white hover:text-[#d4fb20] md:hidden"
             onClick={() => setMenuOpen((o) => !o)}
             aria-label="Toggle menu"
           >

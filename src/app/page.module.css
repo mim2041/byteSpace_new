@@ -744,12 +744,12 @@ a.secondary {
 
 .learningPathIcon {
   display: flex;
+  flex: 0 0 60px;
   align-items: center;
   justify-content: center;
-  width: 100%;
-  height: 100%;
+  width: 60px;
+  height: 60px;
   border-radius: 50%;
-  /* background: #caff00; */
   color: #303320;
 }
 
@@ -1045,39 +1045,101 @@ a.secondary {
   line-height: 1.62;
 }
 
-@media (max-width: 640px) {
+@media (max-width: 960px) {
+  .courseGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+  }
+
+  .learningPathGrid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
+  }
+
+  .learningPathCard {
+    min-height: 150px;
+    font-size: 16px;
+  }
+
+  .growthRow {
+    gap: 42px;
+  }
+
+  .testimonialsIntro {
+    gap: 42px;
+  }
+
+  .testimonialGrid {
+    gap: 20px;
+  }
+}
+
+@media (max-width: 767px) {
   .hero {
     min-height: 760px;
   }
+
+  .hero h1 {
+    max-width: 22rem;
+    font-size: clamp(2rem, 8vw, 3rem);
+    line-height: 1.12;
+  }
+
+  .heroContent {
+    padding-top: 5.5rem;
+    padding-right: 1rem;
+    padding-left: 1rem;
+  }
+
   .heroContent {
     min-height: 760px;
   }
+
+  .heroContent form {
+    max-width: 28rem;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.65rem;
+    margin-top: 2rem;
+  }
+
+  .heroContent form input {
+    width: 100%;
+    min-height: 44px;
+  }
+
+  .heroContent form button {
+    min-height: 44px;
+  }
+
   .heroVisual {
-    bottom: 0;
-    width: 100vw;
+    top: 410px;
+    bottom: auto;
+    width: 110vw;
+    height: 300px;
   }
   .heroEllipse {
-    bottom: -120px;
-    width: 1500px;
+    bottom: -230px;
+    width: 1000px;
   }
   .heroLearner {
-    bottom: -25px;
-    width: 470px;
+    bottom: -30px;
+    width: 410px;
   }
   .courseCard {
-    top: 12px;
+    top: 0;
     left: -5%;
-    width: 170px;
+    width: 145px;
   }
   .progressAsset {
-    top: 22px;
+    top: 12px;
     right: -5%;
-    width: 155px;
+    width: 135px;
   }
   .studentsCard {
-    bottom: 2px;
+    bottom: 0;
     left: -12%;
-    width: 190px;
+    width: 165px;
   }
   .designCard {
     left: 3%;
@@ -1195,5 +1257,47 @@ a.secondary {
 
   .testimonialCard {
     min-height: 0;
+  }
+}
+
+@media (max-width: 420px) {
+  .hero {
+    min-height: 740px;
+  }
+
+  .heroContent {
+    min-height: 740px;
+    padding-top: 5rem;
+  }
+
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .heroContent p {
+    margin-top: 1.25rem;
+  }
+
+  .heroContent form {
+    margin-top: 1.5rem;
+  }
+
+  .heroVisual {
+    top: 400px;
+    height: 290px;
+  }
+
+  .heroLearner {
+    bottom: -28px;
+    width: 350px;
+  }
+
+  .courseCard,
+  .progressAsset {
+    width: 118px;
+  }
+
+  .studentsCard {
+    width: 142px;
   }
 }

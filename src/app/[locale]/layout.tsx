@@ -17,7 +17,7 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "ByteSpace",
   description: "ByteSpace customer portal built with Next.js",
-  icons: { icon: "/favicon.ico" },
+  icons: { icon: "/favicon.svg", shortcut: "/favicon.svg" },
 };
 
 export default async function RootLayout({

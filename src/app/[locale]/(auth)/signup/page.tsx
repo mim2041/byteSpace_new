@@ -91,17 +91,15 @@ export default function SignupPage() {
             onChange={handleChange}
             error={errors.password}
             placeholder="********"
-            hint="Use at least 8 characters with letters and numbers."
           />
 
           <Button
             type="submit"
-            fullWidth
             loading={loading}
             size="lg"
             className="bg-[#d4fb20] text-zinc-900 hover:bg-[#c4eb0e] active:bg-[#b4db00]"
           >
-            Create Account
+            Continue
           </Button>
         </form>
 

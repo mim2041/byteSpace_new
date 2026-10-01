@@ -4,27 +4,33 @@ import logo from "@/assets/logos/Header_Logo.svg";
 import styles from "./Footer.module.css";
 
 const FOOTER_LINK_GROUPS = [
-  [
-    { label: "Featured Courses", href: "/courses" },
+  {
+    title: "Featured Courses",
+    links: [
     { label: "Featured Categories", href: "/categories" },
     { label: "Business", href: "/categories/business" },
     { label: "IT", href: "/categories/it" },
     { label: "Design", href: "/categories/design" },
-  ],
-  [
-    { label: "Development", href: "/categories/development" },
+    ],
+  },
+  {
+    title: "Development",
+    links: [
     { label: "Marketing", href: "/categories/marketing" },
     { label: "Photography", href: "/categories/photography" },
     { label: "Finance", href: "/categories/finance" },
     { label: "Sport", href: "/categories/sport" },
-  ],
-  [
-    { label: "Become a Creator", href: "/creator" },
+    ],
+  },
+  {
+    title: "Become a Creator",
+    links: [
     { label: "Affiliate Program", href: "/affiliate" },
     { label: "Contact", href: "/contact" },
     { label: "Help", href: "/help" },
     { label: "About", href: "/about" },
-  ],
+    ],
+  },
 ];
 
 const LEGAL_LINKS = [
@@ -50,7 +56,12 @@ export default function Footer() {
             <p className={styles.newsletterFinePrint}>By subscribing, you agree to our Privacy Policy and consent to receive updates from our company.</p>
           </div>
           <nav className={styles.footerLinks} aria-label="Footer navigation">
-            {FOOTER_LINK_GROUPS.flat().map((link) => <Link key={link.href} href={link.href}>{link.label}</Link>)}
+            {FOOTER_LINK_GROUPS.map((group) => (
+              <div key={group.title} className={styles.footerLinkGroup}>
+                <h2>{group.title}</h2>
+                {group.links.map((link) => <Link key={link.href} href={link.href}>{link.label}</Link>)}
+              </div>
+            ))}
           </nav>
         </div>
         <div className={styles.footerBottom}>

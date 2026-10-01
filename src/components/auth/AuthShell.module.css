@@ -1,5 +1,6 @@
 .page {
   min-height: 100svh;
+  overflow-x: hidden;
   padding: 0;
   background: #073fe0;
   color: #ffffff;
@@ -123,10 +124,18 @@
 
 .formCard button[type="submit"] {
   height: 40px;
+  width: auto !important;
+  min-width: 78px;
+  margin-left: auto;
   border-radius: 999px;
   padding-top: 0;
   padding-bottom: 0;
   font-size: 0.72rem;
+}
+
+.formCard form {
+  display: flex;
+  flex-direction: column;
 }
 
 @media (max-width: 800px) {
@@ -137,6 +146,7 @@
   .frame {
     display: block;
     min-height: 100svh;
+    overflow: hidden;
   }
 
   .brand {
@@ -145,7 +155,7 @@
   }
 
   .intro {
-    min-height: 260px;
+    min-height: 250px;
     max-width: none;
     padding: 5.25rem 1.5rem 0;
   }
@@ -165,10 +175,62 @@
   }
 
   .formCard {
+    width: 100%;
     padding: 1.75rem 1.35rem 1.5rem;
   }
 
   .formCard h1 {
     font-size: 1.75rem;
+  }
+}
+
+@media (max-width: 420px) {
+  .intro {
+    min-height: 238px;
+    padding-right: 1rem;
+    padding-left: 1rem;
+  }
+
+  .description {
+    max-width: 280px;
+    font-size: 0.74rem;
+  }
+
+  .art {
+    top: 7.2rem;
+    width: min(84%, 340px);
+  }
+
+  .intro {
+    min-height: 230px;
+  }
+
+  .formArea {
+    padding-right: 0.75rem;
+    padding-left: 0.75rem;
+  }
+
+  .formCard {
+    padding-right: 1.1rem;
+    padding-left: 1.1rem;
+  }
+
+  .formCard h1 {
+    font-size: 1.6rem;
+  }
+}
+
+@media (max-width: 800px) and (max-height: 700px) {
+  .intro {
+    min-height: 205px;
+  }
+
+  .art {
+    top: 6.5rem;
+    max-height: 145px;
+  }
+
+  .formArea {
+    padding-top: 1rem;
   }
 }

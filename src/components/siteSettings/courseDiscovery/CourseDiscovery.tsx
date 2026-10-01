@@ -183,7 +183,7 @@ export default function CourseDiscovery() {
                 className={styles.learningPathCard}
               >
                 <span className={styles.learningPathIcon} aria-hidden="true">
-                  <Image src={icon} alt=""  />
+                  <Image src={icon} alt="" />
                 </span>
                 <span>{label}</span>
               </button>

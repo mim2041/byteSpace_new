@@ -1,6 +1,5 @@
 import 'server-only';
 
-import { cookies } from 'next/headers';
 import { handleResponse } from './handleResponse';
 import type { ApiBody, ApiRequestOptions, HttpMethod } from './types';
 
@@ -27,9 +26,6 @@ export async function request<T = unknown>(
     body?: ApiBody,
     options: ApiRequestOptions = {},
 ): Promise<T> {
-    const cookieStore = await cookies();
-    const accessToken = cookieStore.get('accessToken')?.value;
-
     const { headers: optionHeaders, next = { revalidate: 0 }, ...restOptions } = options;
 
     const shouldSendBody = method !== 'GET' && body !== undefined;
@@ -54,5 +50,5 @@ export async function request<T = unknown>(
         ...restOptions,
     });
 
-    return handleResponse<T>(response, url, accessToken);
+    return handleResponse<T>(response, url);
 }

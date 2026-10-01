@@ -82,7 +82,6 @@ export default function LoginPage() {
 
           <Button
             type="submit"
-            fullWidth
             loading={loading}
             size="lg"
             className="bg-[#d4fb20] text-zinc-900 hover:bg-[#c4eb0e] active:bg-[#b4db00]"

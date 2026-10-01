@@ -29,7 +29,6 @@ async function parseResponse<T>(response: Response): Promise<T> {
 export async function handleResponse<T = unknown>(
   response: Response,
   url: string,
-  _accessToken?: string,
 ): Promise<T> {
   const data = await parseResponse<unknown>(response);
 
